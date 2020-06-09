@@ -73,4 +73,14 @@ $(function () {
         $('.magBox ul li').eq(num).css('left', -X * scale + 'px');
         $('.magBox ul li').eq(num).css('top', -Y * scale + 'px');
     });
+
+    for (var i = 0; i < 5; i++) {
+        $(".content_down-icon").click(function () {
+            $(".content_down-icon2").css("padding", "1010px 0px 0px 0px");
+            $(".content_down-icon").click(function () {
+                $(".content_down-icon2").css("padding", "0px 0px 0px 0px");
+            })
+        })
+    }
+
 })
