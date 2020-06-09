@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewBag.Title = "UserCenter";
+    Layout = "~/Views/Shared/_LayoutheadAndFooter.cshtml";
+}
+<style type="text/css">
+    .section_content {
+        margin-top: 3%;
+    }
+
+    .user_info p {
+        color: grey;
+        font-size: 18px;
+        padding-top: 1%;
+    }
+
+    .user_money {
+        height: 190px;
+        background-color: #898989;
+        color: white;
+        font-size: 18px;
+    }
+
+    .user_youhui {
+        height: 190px;
+        background-color: #d3b145;
+        color: white;
+        font-size: 18px;
+    }
+
+    .huiyuan_center {
+        margin-top: 8%;
+    }
+
+    .huiyuan_card {
+        width: 332px;
+        height: 167px;
+        background-image: url(../Images/card-info.png);
+        background-size: contain;
+    }
+</style>
+<section>
+    <div class="section_content col-lg-8 col-lg-offset-2">
+        <div>
+            <div>
+                <p style="font-size: 18px;">个人信息</p>
+                <hr style="border: 1px solid black;width: 6%;margin-left: 0;" />
+                <hr style="width: 100%;margin-left: 0;" />
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="user_info col-lg-3">
+                        <h4>用户名：<span>15650850219</span></h4>
+                        <p><img src="../Images/tel-icon.png" />  15650850219</p>
+                        <p><img src="../Images/position-icon-black.png" />  地址管理</p>
+                        <p><img src="../Images/pwd-icon.png" />  修改密码</p>
+                        <p><img src="../Images/edit-icon.png" />  编辑个人信息</p>
+                        <p><img src="../Images/list-icon.png" />  订单管理</p>
+                    </div>
+                    <div class="col-lg-3 col-lg-offset-1 user_money">
+                        <p><img src="../Images/recharge-icon.png" style="margin-top: 5%;"></p>
+                        <p>余额：<span style="font-size: 30px;">￥0</span></p>
+                        <p>储蓄卡兑换</p>
+                        <p><span>余额充值</span><span style="padding-left: 40%;">充值记录</span></p>
+                    </div>
+                    <div class="col-lg-3 col-lg-offset-1 user_youhui">
+                        <p><img src="../Images/coupon-icon.png" style="margin-top: 5%;"></p>
+                        <p>优惠券：<span style="font-size: 30px;">5</span>张可用</p>
+                        <p>兑换优惠券</p>
+                        <p>领券专区</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="huiyuan_center">
+            <div>
+                <p style="font-size: 18px;">会员中心</p>
+                <hr style="border: 1px solid black;width: 6%;margin-left: 0;" />
+                <hr style="width: 100%;margin-left: 0;" />
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="huiyuan_card col-lg-4">
+                        <div class="text-center col-lg-7 col-lg-offset-1" style="margin-top: 5%;font-size: 12px;">
+                            <h4>缤乐乐享普卡</h4>
+                            <p>Your current level is Joy Regular Card</p>
+                            <p>目前获得缤乐星数</p>
+                        </div>
+                        <div class="col-lg-3">
+                            <img src="../Images/v1.png" width="80px" style="margin-top: 10%;">
+                            <!-- <ul class="nav navbar-nav">
+                                <li><img src="../Images/star.png" /></li>
+                                <li><img src="../Images/star.png" /></li>
+                                <li><img src="../Images/star.png" /></li>
+                                <li><img src="../Images/star.png" /></li>
+                                <li><img src="../Images/star.png" /></li>
+                            </ul> -->
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-lg-offset-1">
+                        <p>当前特权等级</p>
+                        <p><img src="../Images/dot.png">&nbsp;V1  缤乐乐享普卡</p>
+                        <p><img src="../Images/dot.png">&nbsp;见面礼包（注册即送100元优惠券）；</p>
+                        <p>&nbsp;&nbsp;了解等级特权  &nbsp; ></p>
+                        <p>&nbsp;&nbsp;了解缤乐星规则  &nbsp;></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="huiyuan_center">
+            <div>
+                <p style="font-size: 18px;">权益</p>
+                <hr style="border: 1px solid black;width: 6%;margin-left: 0;" />
+                <hr style="width: 100%;margin-left: 0;" />
+            </div>
+            <div class="container-fluid">
+                <dl class="col-lg-2">
+                    <dt><img src="../Images/vip-icon.png"></dt>
+                    <dd>会员日</dd>
+                </dl>
+                <dl class="col-lg-2">
+                    <dt><img src="../Images/birth-icon.png"></dt>
+                    <dd>生日礼包</dd>
+                </dl>
+                <dl class="col-lg-2">
+                    <dt><img src="../Images/rebate-icon.png"></dt>
+                    <dd>邀请返利</dd>
+                </dl>
+                <dl class="col-lg-2">
+                    <dt><img src="../Images/offline-icon.png"></dt>
+                    <dd>线下邀请活动</dd>
+                </dl>
+                <dl class="col-lg-2">
+                    <dt><img src="../Images/discount-icon.png"></dt>
+                    <dd>100折</dd>
+                </dl>
+                <dl class="col-lg-2">
+                    <dt><img src="../Images/gift-icon.png"></dt>
+                    <dd>升级礼包</dd>
+                </dl>
+            </div>
+        </div>
+        <hr style="margin: 5% 0;" />
+    </div>
+</section>
+

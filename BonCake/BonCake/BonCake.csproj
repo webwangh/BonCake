@@ -101,6 +101,16 @@
     <Content Include="Images\Banner\banner_2.jpg" />
     <Content Include="Images\banner_1.jpg" />
     <Content Include="Images\banner_2.jpg" />
+    <Content Include="Images\bg1.png" />
+    <Content Include="Images\bg2.png" />
+    <Content Include="Images\bg3.jpg" />
+    <Content Include="Images\birth-icon.png" />
+    <Content Include="Images\card-info.png" />
+    <Content Include="Images\coupon-icon.png" />
+    <Content Include="Images\discount-icon.png" />
+    <Content Include="Images\dot.png" />
+    <Content Include="Images\edit-icon.png" />
+    <Content Include="Images\gift-icon.png" />
     <Content Include="Images\Goods\Goods_Big_Gogo.jpg" />
     <Content Include="Images\Goods\Goods_Big_RubyPlanet.jpg" />
     <Content Include="Images\Goods\Goods_Didi.png" />
@@ -176,22 +186,41 @@
     <Content Include="Images\Icon\tmall-icon.png" />
     <Content Include="Images\Icon\weibo-icon.png" />
     <Content Include="Images\Icon\wx-icon.png" />
+    <Content Include="Images\line-pic.png" />
+    <Content Include="Images\line-pic2.png" />
+    <Content Include="Images\list-icon.png" />
     <Content Include="Images\logo_buttom.png" />
     <Content Include="Images\logo_top.png" />
+    <Content Include="Images\offline-icon.png" />
+    <Content Include="Images\position-icon-black.png" />
+    <Content Include="Images\pwd-icon.png" />
     <Content Include="Images\QR_code\QRcode_taobao.png" />
     <Content Include="Images\QR_code\QRcode_weixin.jpg" />
     <Content Include="Images\QR_code\QR_code_weibo.png" />
+    <Content Include="Images\rebate-icon.png" />
+    <Content Include="Images\recharge-icon.png" />
     <Content Include="Images\recommend_1.jpg" />
     <Content Include="Images\recommend_2.jpg" />
+    <Content Include="Images\register-icon.png" />
+    <Content Include="Images\register-text.png" />
+    <Content Include="Images\star.png" />
     <Content Include="Images\style.css" />
+    <Content Include="Images\tel-icon.png" />
+    <Content Include="Images\v1.png" />
+    <Content Include="Images\vip-icon.png" />
+    <Content Include="Images\warn-icon.png" />
+    <Content Include="Images\wx-chat.png" />
     <Content Include="Scripts\BonCake.js" />
     <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\gVerify.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
+    <Content Include="Scripts\login.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -207,6 +236,9 @@
     <Content Include="Views\Shared\_LayoutheadAndFooter.cshtml" />
     <Content Include="Views\Index\Index.cshtml" />
     <Content Include="Views\Index\GoodsInfo.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\Regist.cshtml" />
+    <Content Include="Views\Login\UserCenter.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

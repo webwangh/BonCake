@@ -1,0 +1,211 @@
+﻿
+@{
+    ViewBag.Title = "Regist";
+    Layout = "~/Views/Shared/_LayoutheadAndFooter.cshtml";
+}
+<style type="text/css">
+    .section_content {
+        width: 100%;
+        height: 1000px;
+        background-image: url(../Images/bg3.jpg);
+        background-position: 0% 50%;
+    }
+
+    .section_content_form {
+        /* width: 50%; */
+        height: 600px;
+        background-color: white;
+        margin-top: 8%;
+    }
+
+    .section_content_logintype {
+        font-size: 18px;
+        margin-top: 10%;
+        color: gray;
+    }
+
+    .section_content_input {
+        width: 100%;
+        height: auto;
+        margin-left: 7%;
+        margin-top: 3%;
+    }
+
+    .input_userName {
+        width: 85%;
+        height: 45px;
+        background-color: whitesmoke;
+        border: none;
+        margin-top: 5%;
+        border-radius: 10px;
+        font-size: 16px;
+    }
+
+    .input_btn {
+        width: 28%;
+        height: 45px;
+        margin-left: 5%;
+        color: white;
+        border: none;
+        background-color: #d3b145;
+        border-radius: 10px;
+        font-size: 16px;
+    }
+
+    .input_btn_login {
+        width: 85%;
+        height: 45px;
+        background-color: black;
+        color: white;
+        border: none;
+        margin-top: 5%;
+        font-size: 18px;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+<section id="section">
+    <div class="section_content" style="position: relative;">
+        <span class="col-lg-offset-1 col-lg-7" style="position: absolute; left: 8%;top: 30%;">
+            <img src="../Images/register-text.png" />
+        </span>
+        <div class="yanzhengma_login">
+            <div class="section_content_form col-lg-3 col-lg-offset-8">
+                <p class="section_content_logintype text-center">
+                    用户注册
+                </p>
+                <div class="section_content_input">
+                    <input type="text" name="" id="" value="" placeholder="&nbsp;&nbsp;请输入11位手机号" class="input_userName" />
+                    <input type="text" name="" id="" value="" placeholder="&nbsp;&nbsp;密码(6-20个字符)" class="input_userName" />
+                    <input type="text" name="" id="" value="" placeholder="&nbsp;&nbsp;再次填写密码" class="input_userName" />
+                    <input id="" type="text" placeholder="&nbsp;&nbsp;*验证码" class="input_userName" style="width: 60%;" />
+                    <span id="v_container" style=" display:inline-block;vertical-align: middle;"></span>
+                    <input class="input_userName" id="code" name="code" type="text" placeholder="&nbsp;&nbsp;*短信验证码" style="width: 50%;" />
+                    <input class="input_btn" id="zphone" type="button" value=" 获取验证码 " onClick="get_mobile_code();">
+                    <input class="input_btn_login" type="button" value=" 注册 " />
+                    <p>
+                        <input type="checkbox" name="" id="" value="" style="margin-top: 8%;" />
+                        已阅读并同意注册协议
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    var verifyCode = new GVerify("v_container");
+    function get_mobile_code() {
+        var mobile = $('#mobile').val();
+        var res = verifyCode.validate(document.getElementById("code_input").value);
+        if (!isPhoneNo(mobile)) {
+            $('.message_phone').text("*手机号码有误，请重填");
+            return false;
+        }
+        $('.message_phone').text("");
+        if (!res) {
+            $('.message_yanzheng').text("*验证码错误");
+            return false;
+        }
+        $('.message_yanzheng').text("");
+        console.log('将要发送手机验证码' + mobile)
+        $.post({
+            url: 'http://xiashu.fun:5349/user/getSmsByPhone/' + mobile,
+            success: function (result) {
+                if (result.code == 200) {
+                    console.log(result.data)
+                }
+
+            }
+        });
+    };
+    $("#embed-submit").click(function (e) {
+        var mobile = $("#mobile").val();
+        var code = $("#code").val();
+        if (mobile == "") {
+            $('.message_phone').text("*手机号码有误，请重填");
+            return false;
+        }
+        $('.message_phone').text("");
+        if (code == "") {
+            alert('手机验证码不能为空');
+            return false;
+        }
+        var res = verifyCode.validate(document.getElementById("code_input").value);
+        if (!res) {
+            alert("图形验证码错误");
+            return false;
+        }
+
+
+    });
+    $("#embed-submit1").click(function (e) {
+        var phone = $("input[name='phone']").val();
+        var password = $("input[name='password']").val();
+        $.post({
+            url: 'http://xiashu.fun:5349/user/checkUserByInfo/' + phone + '/' + password,
+            success: function (result) {
+                if (result.code == 200) {
+                    if (phone == result.data.phone && password == result.data.password) {
+                        console.log('用户名密码正确')
+                        window.location = "new_index.html"
+                    }
+                    else {
+                        console.log('用户名或密码不匹配')
+                    }
+
+                }
+
+            }
+        })
+    });
+
+    var iTime = 59;
+    var Account;
+    function RemainTime() {
+        document.getElementById('zphone').disabled = true;
+        var iSecond, sSecond = "", sTime = "";
+        if (iTime >= 0) {
+            iSecond = parseInt(iTime % 60);
+            iMinute = parseInt(iTime / 60)
+            if (iSecond >= 0) {
+                if (iMinute > 0) {
+                    sSecond = iMinute + "分" + iSecond + "秒";
+                } else {
+                    sSecond = iSecond + "秒";
+                }
+            }
+            sTime = sSecond;
+            if (iTime == 0) {
+                clearTimeout(Account);
+                sTime = '获取手机验证码';
+                iTime = 59;
+                document.getElementById('zphone').disabled = false;
+            } else {
+                Account = setTimeout("RemainTime()", 1000);
+                iTime = iTime - 1;
+            }
+        } else {
+            sTime = '没有倒计时';
+        }
+        document.getElementById('zphone').value = sTime;
+    }
+
+
+
+
+    // 验证手机号
+    function isPhoneNo(phone) {
+        var pattern = /^1[34578]\d{9}$/;
+        return pattern.test(phone);
+    }
+
+</script>
+

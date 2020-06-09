@@ -1,0 +1,10 @@
+$(function(){
+	$(".namepwdlogin_1").click(function(){
+		$(".yanzhengma_login").addClass("hidden")
+		$(".namepwd_login").removeClass("hidden")
+	})
+	$(".yanzhengmalogin_2").click(function(){
+		$(".yanzhengma_login").removeClass("hidden")
+		$(".namepwd_login").addClass("hidden")
+	})
+})
