@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/BonCake.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.2.1.js"></script>
+    <link rel="shortcut icon" href="../Images/icon.ico" />
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/BonCake.js"></script>
+</head>
+<body>
+    <div>
+        <header>
+            <div class="header_box">
+                <div class="row col-lg-offset-2">
+                    <a href="" class="col-lg-2 header_logo text-right">
+                        <img src="../Images/logo_top.png" alt="">
+                    </a>
+                    <nav class="text-center header_menu" class="col-lg-4">
+                        <a href="">
+                            <span class="China">首页</span><br>
+                            <span class="English"> HOME</span>
+                        </a>
+                        <a href="">
+                            <span class="China">所有商品</span><br>
+                            <span class="English"> PRODUCTS</span>
+                        </a>
+                        <a href="">
+                            <span class="China">下午茶点</span><br>
+                            <span class="English"> TEA TIME</span>
+                        </a>
+                        <a href="">
+                            <span class="China">生如夏花</span><br>
+                            <span class="English"> SUMMER FLOWERS</span>
+                        </a>
+                        <a href="">
+                            <span class="China">双层定制</span><br>
+                            <span class="English"> CUSTOMIZED PRO</span>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Icon/cut-line.png" height="36" alt="">
+                        </a>
+                    </nav>
+
+                    <div class="col-lg-4 header_userInfo">
+                        <div>
+                            <a href="">
+                                <img src="../Images/Icon/login-icon.png" alt="">
+                                <span class="header_userInfo_text">登录</span>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="">
+                                <img src="../Images/Icon/register-icon.png" alt="">
+                                <span>注册</span>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="">
+                                <span>北京市</span>
+                                <img src="../Images/Icon/pull-down.png" alt="">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="">
+                                <img src="../Images/Icon/cart-icon.png" alt="">
+                                <span>购物车<a href="">(<a href="">0</a>)</a></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        @RenderBody()
+        <footer>
+            <div class="footer">
+                <div class="footer_box">
+                    <div class="col-lg-3 footer_left">
+                        <img src="../Images/logo_buttom.png" height="79" alt="">
+                        <div class="footer_left_text">
+                            <p>食品经营许可证</p>
+                            <p>北京快乐佳焙餐饮管理有限公司</p>
+                            <p>统一社会信用代码：91110105318132994J</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <nav class="text-center header_menu_buttom" class="col-lg-4">
+                            <a href="">
+                                <span class="China_2">联系我们</span><br>
+                                <span class="English_2"> HOME</span>
+                            </a>
+                            <a href="" class="fenge">
+                                |
+                            </a>
+                            <a href="">
+                                <span class="China_2">订购帮助</span><br>
+                                <span class="English_2"> PRODUCTS</span>
+                            </a>
+                            <a href="" class="fenge">
+                                |
+                            </a>
+                            <a href="">
+                                <span class="China_2">品牌故事</span><br>
+                                <span class="English_2"> TEA TIME</span>
+                            </a>
+                            <a href="" class="fenge">
+                                |
+                            </a>
+                            <a href="">
+                                <span class="China_2">企业专区</span><br>
+                                <span class="English_2"> SUMMER FLOWERS</span>
+                            </a>
+                        </nav>
+                    </div>
+                    <div class="col-lg-3 footer_right">
+                        <div class="footer_right_img">
+                            <img src="../Images/Icon/weibo-icon.png" alt="">
+                            <img class="footer_right_img_move" src="../Images/Icon/wx-icon.png" alt="">
+                            <img class="footer_right_img_move" src="../Images/Icon/tmall-icon.png" alt="">
+                        </div>
+                        <div class="footer_right_text">
+                            <p>预定电话：131-6111-7513 400-900-6177</p>
+                            <p>北京市朝阳区建国路89号院16号楼622号</p>
+                            <p>官方微信：boncakekefu</p>
+                            <p>请提前24小时预定</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

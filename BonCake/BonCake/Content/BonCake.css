@@ -1,0 +1,399 @@
+/* 导航栏 */
+.header_box {
+	width: 100%;
+	height: 92px;
+	box-shadow: 0px 1px 12px 0px rgba(128, 113, 113, 0.3);
+}
+/* logo */
+.header_logo {
+	line-height: 92px;
+}
+/* 去下划线 设置字体颜色 */
+.header_menu a{
+	float: left;
+	text-decoration: none;
+	color: #000000;
+	/* padding:10px;                   四个内边距都是10px
+	   padding:5px 10px;   　          上下5px　左右10px
+	   padding:5px 10px 15px;          上5px　右10px　下15px   左因为缺省与右相等，则为10px
+	   padding:5px 10px 15px 20px;     上5px　右10px　下15px 　左20px*/
+	padding: 28px 20px 0px;
+}
+/* 菜单字体 */
+.header_menu a .China {
+	font-size: 15px;
+}
+.header_menu a .English {
+	font-size: 12px;
+	color: #999999;
+}
+/* 用户信息 */
+.header_userInfo {}
+
+/*个体*/
+.header_userInfo div {
+	float: left;
+	padding: 34px 20px 0px;
+}
+.header_userInfo div a {
+	text-decoration: none;
+	text-align: center;
+	font-size: 15px;
+	color: black;
+}
+/* 中心内容部分 */
+.content {
+	position: relative;
+}
+.content_down-icon {
+	position: absolute;
+	top: 872px;
+	left: 915px;
+}
+.content_down-icon2 {
+	position: absolute;
+	top: 1788px;
+	left: 915px;
+}
+.content_GoodsInfo_1{
+	height: 1015px;
+}
+
+/* 商品类型 */
+.content_GoodsInfo_type {
+	width: 1173px;
+	height: 145px;
+	margin: 0px auto;
+}
+
+.content_GoodsInfo_box {
+	padding: 50px 312.5px 0px;
+}
+
+.content_GoodsInfo_type div {
+	float: left;
+}
+
+.content_GoodsInfo_type .go_left {
+	height: 94px;
+	width: 82px;
+	margin: 0px auto;
+	line-height: 94px;
+}
+
+.content_GoodsInfo_type .go_right {
+	height: 94px;
+	width: 82px;
+	margin: 0px auto;
+	line-height: 94px;
+}
+
+.content_GoodsInfo_type_goods {
+	width: 380px;
+	height: 95px;
+}
+
+.content_GoodsInfo_type_goods img {
+	margin: -2px;
+}
+
+.Goods_info_box {
+	height: 870px;
+	width: 1173px;
+	margin: 0px auto;
+}
+
+.Goods_info_box .Goods_info_Img.Goods_info_info {
+	float: left;
+}
+/* 缩略图 */
+.Goods_info_Img {
+	width: 600px;
+	padding: 15px 0px 0px;
+}
+
+.Goods_info_ThumbnailBox {
+	width: 600px;
+	height: 76px;
+}
+
+.Goods_info_ThumbnailImg {
+	margin: 0px auto;
+}
+
+.Goods_info_ThumbnailImg img {
+	margin: 15px 0px 0px;
+}
+
+.Goods_info_ThumbnailImg img:hover {
+	border: 1px solid transparent;
+	border: 2px solid #AAAAAA;
+}
+
+/* 商品信息样式 */
+.Goods_name {
+	font-size: 30px;
+	padding: 99px 0px 6px;
+}
+
+.Goods_name2 {
+	font-size: 24px;
+	padding: 0px 0px 6px;
+}
+
+.Goods_price {
+	padding: 0px 0px 30px;
+}
+
+.Goods_price_M {
+	font-size: 26px;
+}
+
+.Goods_price_num {
+	font-size: 39px;
+}
+
+.Goods_type {
+	font-size: 16px;
+}
+
+.Goods_type2 {
+	font-size: 16px;
+	padding: 0px 0px 30px;
+}
+
+.Goods_Num {
+	padding: 0px 0px 20px;
+}
+
+.Goods_Num_input {
+	width: 90px;
+	box-shadow: 60%;
+}
+
+.Goods_size {
+	padding: 0px 0px 30px;
+}
+
+.Goods_size_input {
+	width: 90px;
+	box-shadow: 60%;
+}
+
+.Goods_size_size {
+	font-size: 16px;
+	color: #666666;
+	margin: 0px 0px 5px 0px;
+}
+
+.Goods_time_text {
+	font-size: 16px;
+	margin: 0px 0px 30px 0px;
+	color: #666666;
+}
+
+.Goods_button {}
+
+.Goods_button_add {
+	width: 147px;
+	height: 33px;
+	color: white;
+	background-color: #333333;
+}
+
+.Goods_button_add:hover {
+	color: white;
+}
+
+.Goods_button_add div:hover {
+	color: white;
+}
+
+.Goods_button_add img {
+	float: left;
+}
+
+.Goods_button_buy {
+	width: 117px;
+	height: 33px;
+	color: black;
+	border: 1px solid black;
+	margin: 0px 0px 0px 20px;
+}
+
+.Goods_tiandu {
+	color: #666666;
+	margin: 45px 0px 0px 0px;
+	font-size: 16px;
+}
+
+.Goods_star {
+	margin: 0px 0px 10px 0px;
+}
+
+.Goods_baoxian {
+	color: #666666;
+	margin: 0px 0px 5px 0px;
+	font-size: 16px;
+}
+
+.Goods_baoxian_text {
+	margin: 0px 0px 45px 0px;
+	font-size: 16px;
+}
+
+.Goods_button_more:hover {
+	color: white;
+}
+
+.Goods_more {
+	background-color: #333333;
+	color: white;
+	width: 120px;
+	border-top-left-radius: 30px;
+}
+
+.Goods_more:hover {
+	color: white;
+}
+
+/* 主厨推荐 */
+.Tuijian_title {
+	margin: 88px 0px 30px 0px;
+}
+
+.Tuijian_box {
+	margin: 0px 0px 66px 0px;
+}
+
+/* 底部导航栏 */
+/* 字体 */
+.China_2{
+	font-size: 18px;
+}
+.English_2{
+	font-size: 12px;
+}
+.footer {
+	height: 285px;
+}
+.footer_box{
+	padding: 26px 0px 0px 65px;
+}
+.footer_left{
+	font-size: 16px;
+}
+.footer_left_text{
+	margin: 60px 0px 0px 0px;
+}
+.header_menu_buttom{
+	margin: 10px 0px 0px 0px;
+}
+.header_menu_buttom a{
+	float: left;
+	text-decoration: none;
+	color: #000000;
+	/* padding:10px;                   四个内边距都是10px
+	   padding:5px 10px;   　          上下5px　左右10px
+	   padding:5px 10px 15px;          上5px　右10px　下15px   左因为缺省与右相等，则为10px
+	   padding:5px 10px 15px 20px;     上5px　右10px　下15px 　左20px*/
+	padding: 28px 20px 0px;
+}
+.footer_right{
+	margin: 0px 0px 0px 120px;
+}
+.header_menu_buttom .fenge{
+	margin: 0px 15px 0px 15px;
+}
+.footer_right_img_move{
+	margin: 0px 0px 0px 45px;
+}
+.footer_right_text{
+	margin: 35px 0px 0px 0px;
+	font-size: 16px;
+}
+
+/*放大镜*/
+#outBox{
+	width: 1002px;
+	height: 540px;
+	margin: 2px auto;
+}
+.w{
+	width: 600px;
+	height: 600px;
+}
+.leftBox{
+	width: 600px;
+	height: 600px;
+	float: left;
+}
+.normalBox{
+	overflow: hidden;
+	position: relative;
+	border: 1px solid #f2f2f2;
+}
+.normalBox .w{
+	display: none;
+}
+.botBox{
+	width: 100%;
+	height: 150px;
+	background: white;
+	overflow: hidden;
+	margin:0px 90px;
+}
+.botBox ul li{
+	float: left;
+	width:80px;
+	height:80px;
+
+	list-style-type:none;
+	margin: 15px 5px 0px;
+}
+.botBox ul li:hover{
+	border: 2px solid #999999;
+}
+.bord{
+	border-color: #e4393c !important;
+	opacity: 1 !important;
+}
+.moveBox{
+	width: 300px;
+	height: 300px;
+	background: #666666;
+	opacity:0.3;
+	position: absolute;
+	border:2px solid rgba(128, 113, 113, 0.3);
+	top: 0;
+	left: 0;
+	display: none;
+	cursor: move;
+}
+.magBox{
+	width: 400px;
+	height: 400px;
+	border: 1px solid #808080;
+	position: relative;
+	position:absolute;
+	top:15px;
+	right:-410px;
+	float: left;
+	overflow: hidden;
+	display: none;
+	z-index:999;
+}
+
+.magBox ul li{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#n,.m{
+	display: block !important;
+}
+.box{
+	width: 110px;
+	margin: auto;
+}
