@@ -174,6 +174,12 @@
     <Content Include="Images\Icon\double-icon.png" />
     <Content Include="Images\Icon\f7c7decdf8f6eb43b43216d14777248b3fdf982c.png" />
     <Content Include="Images\Icon\home-down-icon.png" />
+    <Content Include="Images\Icon\icon_beijing.png" />
+    <Content Include="Images\Icon\icon_chengdu.jpg" />
+    <Content Include="Images\Icon\icon_shanghai.png" />
+    <Content Include="Images\Icon\icon_shenyang.png" />
+    <Content Include="Images\Icon\icon_tianjin.png" />
+    <Content Include="Images\Icon\icon_杭州.png" />
     <Content Include="Images\Icon\left-go.png" />
     <Content Include="Images\Icon\login-icon.png" />
     <Content Include="Images\Icon\position-icon.png" />
