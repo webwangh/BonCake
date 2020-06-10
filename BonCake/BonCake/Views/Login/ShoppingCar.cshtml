@@ -1,0 +1,338 @@
+﻿
+@{
+    ViewBag.Title = "购物车";
+    Layout = "~/Views/Shared/_LayoutheadAndFooter.cshtml";
+}
+    <section>
+        <div id="content">
+            <div class="col-lg-offset-2" style="padding-left: 30px; margin-top: 50px;">
+                <div class="container-fluid row">
+                    购物车
+                </div>
+            </div>
+            <div class="col-lg-8 col-lg-offset-2" style="padding-left: 30px; margin-top: 50px;">
+                <table border="0" cellspacing="" cellpadding="">
+                    <thead>
+                        <tr class="table-header border-title" style="border-bottom: 1px solid #999999; text-align: center;">
+                            <td width="18px">
+                                <label class="cart-checkbox-label">
+                                    <input class="cart-input" type="checkbox" id="one-checked" checked>
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td width="172px">商品</td>
+                            <td width="193px"></td>
+                            <td width="210px">生日牌/数字蜡烛</td>
+                            <td width="152px">单价</td>
+                            <td width="135px">数量</td>
+                            <td width="125px">金额</td>
+                            <td width="168px">操作</td>
+                        </tr>
+                    </thead>
+                    <tbody class="border-bor">
+                        <tr class="border-tr">
+                            <td>
+                                <label class="cart-checkbox-label">
+                                    <input class="cart-input" type="checkbox" checked>
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>
+                                <div class="td-pic-box">
+                                    <a href="" target="_blank">
+                                        <img class="td-pic" src="../Images/Goods/2bf618bacfcf3df2f778260b006143a8f19b0d91.jpg" alt="迪迪">
+                                    </a>
+
+                                </div>
+                            </td>
+                            <td>
+                                <div class="des-group">
+                                    <div class="desc-name">
+                                        <span class="en-name"></span>
+                                        <span class="cn-name">迪迪</span>
+                                    </div>
+                                    <div class="desc-size">
+                                        <span>尺寸：1.5镑</span>
+                                    </div>
+                                    <div class="desc-gift">
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="td-select">
+                                    <select class="mock-select">
+                                        <option>编辑或选择</option>
+                                        <option>生日快乐</option>
+                                        <option>happy birthday</option>
+                                    </select>
+
+                                    <!-- <div class="mock-select"></div>
+                                <input type="hidden" name="choc_brand">
+                                <img class="mock-select-icon" src="../Images/Icon/pull-down.png" alt="">
+                                <ul class="mock-option">
+                                    <li class="mock-option-item">
+                                        <span class="mock-option-text">编辑或选择</span>
+                                    </li>
+                                    <li class="mock-option-item">
+                                        <span class="mock-option-text">生日快乐</span>
+                                    </li>
+                                    <li class="mock-option-item">
+                                        <span class="mock-option-text">happy birthday</span>
+                                    </li>
+                                    <li data-id="input" class="mock-option-item last container-fluid row">
+                                        <input class="mock-option-input col-lg-9" type="text" placeholder="最多可写八个字" maxlength="8">
+                                        <button class="mock-option-btn col-lg-3" type="button">确定</button>
+                                    </li>
+                                </ul> -->
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <span class="td-price">￥258</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="number-group p-quantity">
+                                    <input class="td-number" type="text" name="modify_quantity[goods_546_1786][quantity]" value="1">
+                                    <img class="td-number-icon" src="../Images/Icon/double-icon.png" alt="">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="p-subtotal">
+                                    <span class="td-price color" data-discount="0">
+                                        ￥258
+                                    </span>
+                                </div>
+                            </td>
+                            <td>
+                                <img class="td-close btn-delete" src="../Images/Icon/close-icon.png" alt="">
+                            </td>
+                        </tr>
+                        <tr class="border-tr">
+                            <td>
+                                <label class="cart-checkbox-label">
+                                    <input class="cart-input" type="checkbox" checked>
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>
+                                <div class="td-pic-box">
+                                    <a href="" target="_blank">
+                                        <img class="td-pic" src="../Images/Goods/2bf618bacfcf3df2f778260b006143a8f19b0d91.jpg" alt="迪迪">
+                                    </a>
+
+                                </div>
+                            </td>
+                            <td>
+                                <div class="des-group">
+                                    <div class="desc-name">
+                                        <span class="en-name"></span>
+                                        <span class="cn-name">迪迪</span>
+                                    </div>
+                                    <div class="desc-size">
+                                        <span>尺寸：1.5镑</span>
+                                    </div>
+                                    <div class="desc-gift">
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="td-select">
+                                    <select class="mock-select">
+                                        <option>编辑或选择</option>
+                                        <option>生日快乐</option>
+                                        <option>happy birthday</option>
+                                    </select>
+
+                                    <!-- <div class="mock-select"></div>
+                                <input type="hidden" name="choc_brand">
+                                <img class="mock-select-icon" src="../Images/Icon/pull-down.png" alt="">
+                                <ul class="mock-option">
+                                    <li class="mock-option-item">
+                                        <span class="mock-option-text">编辑或选择</span>
+                                    </li>
+                                    <li class="mock-option-item">
+                                        <span class="mock-option-text">生日快乐</span>
+                                    </li>
+                                    <li class="mock-option-item">
+                                        <span class="mock-option-text">happy birthday</span>
+                                    </li>
+                                    <li data-id="input" class="mock-option-item last container-fluid row">
+                                        <input class="mock-option-input col-lg-9" type="text" placeholder="最多可写八个字" maxlength="8">
+                                        <button class="mock-option-btn col-lg-3" type="button">确定</button>
+                                    </li>
+                                </ul> -->
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <span class="td-price">￥258</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="number-group p-quantity">
+                                    <input class="td-number" type="text" name="modify_quantity[goods_546_1786][quantity]" value="1">
+                                    <img class="td-number-icon" src="../Images/Icon/double-icon.png" alt="">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="p-subtotal">
+                                    <span class="td-price color" data-discount="0">
+                                        ￥258
+                                    </span>
+                                </div>
+                            </td>
+                            <td>
+                                <img class="td-close btn-delete" src="../Images/Icon/close-icon.png" alt="">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="container-fluid row">
+                    <div class="col-lg-7">
+                        <div style="padding-top: 30px; font-size: 18px;">
+                            <div id="myTabContent" class="nav nav-tabs">
+                                <span style="margin: 20px;" class="active"><a href="#home" data-toggle="tab">配件商品</a></span>
+                                <span style="margin: 10px;"><a href="#ios" data-toggle="tab">配单商品</a></span>
+                            </div>
+                        </div>
+                        <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane fade in active" id="home">
+
+                                <ul class="container-fluid row content_ul1 tab-pane fade in active">
+                                    <li class="col-sm-3 ">
+                                        <a target="_blank">
+                                            <div class="pro-img-box">
+                                                <img class="pro-pic" alt="果果" src="../Images/Goods/5678569e95462e7c8924238dca74ad5f0dc5afd3.jpg" height="250px">
+                                            </div>
+                                        </a>
+                                        <div class="pro-media-desc">
+                                            <div class="pro-en-name">
+                                                <span>Gogo </span>
+                                            </div>
+                                            <div class="pro-cn-name" style="padding-top: 5px;">
+                                                <span>果果</span>
+                                            </div>
+                                            <div class="pro-price" style="padding-top: 5px;">
+                                                <span class="pro-mark">¥</span>
+                                                <span>258.00</span>
+                                            </div>
+                                            <div class="pro-buy ">
+                                                <a>
+                                                    <img class="btn-icon" src="../Images/Icon/btn-cart-icon.png" />
+                                                    <span>购买</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="col-sm-3 ">
+                                        <a target="_blank">
+                                            <div class="pro-img-box">
+                                                <img class="pro-pic" alt="果果" src="../Images/Goods/fde868fb830e7284bd1b9406e52ea9355e1c18c0.jpg" height="250px">
+                                            </div>
+                                        </a>
+                                        <div class="pro-media-desc">
+                                            <div class="pro-en-name">
+                                                <span>Gogo </span>
+                                            </div>
+                                            <div class="pro-cn-name" style="padding-top: 5px;">
+                                                <span>果果</span>
+                                            </div>
+                                            <div class="pro-price" style="padding-top: 5px;">
+                                                <span class="pro-mark">¥</span>
+                                                <span>258.00</span>
+                                            </div>
+                                            <div class="pro-buy ">
+                                                <a>
+                                                    <img class="btn-icon" src="../Images/Icon/btn-cart-icon.png" />
+                                                    <span>购买</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-pane fade" id="ios">
+
+                                <ul class="container-fluid row content_ul1">
+                                    <li class="col-sm-3 ">
+                                        <a target="_blank">
+                                            <div class="pro-img-box">
+                                                <img class="pro-pic" alt="果果" src="../Images/Goods/ac3c96216c88209cd6a9d6ffa4bf1af89fa02f92.jpg" height="250px">
+                                            </div>
+                                        </a>
+                                        <div class="pro-media-desc">
+                                            <div class="pro-en-name">
+                                                <span>Gogo </span>
+                                            </div>
+                                            <div class="pro-cn-name" style="padding-top: 5px;">
+                                                <span>果果</span>
+                                            </div>
+                                            <div class="pro-price" style="padding-top: 5px;">
+                                                <span class="pro-mark">¥</span>
+                                                <span>258.00</span>
+                                            </div>
+                                            <div class="pro-buy ">
+                                                <a>
+                                                    <img class="btn-icon" src="../Images/Icon/btn-cart-icon.png" />
+                                                    <span>购买</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="col-sm-3 ">
+                                        <a target="_blank">
+                                            <div class="pro-img-box">
+                                                <img class="pro-pic" alt="果果" src="../Images/63b1b94e7d390ef6aa329fc85744177b48236888.jpg" height="250px">
+                                            </div>
+                                        </a>
+                                        <div class="pro-media-desc">
+                                            <div class="pro-en-name">
+                                                <span>Gogo </span>
+                                            </div>
+                                            <div class="pro-cn-name" style="padding-top: 5px;">
+                                                <span>果果</span>
+                                            </div>
+                                            <div class="pro-price" style="padding-top: 5px;">
+                                                <span class="pro-mark">¥</span>
+                                                <span>258.00</span>
+                                            </div>
+                                            <div class="pro-buy ">
+                                                <a>
+                                                    <img class="btn-icon" src="../Images/Icon/btn-cart-icon.png" />
+                                                    <span>购买</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5" style="text-align: right;padding-top: 170px;margin-left: -60px;font-size: 16px;">
+                        <div>
+                            商品金额：
+                            <span class="pro-mark">¥</span>
+                            <span>258.00</span>
+                        </div>
+                        <div style="padding-top: 15px;">
+                            优惠金额：
+                            <span class="pro-mark">¥</span>
+                            <span>258.00</span>
+                        </div>
+                        <hr />
+                        <div>
+                            (订单可得积分258)合计：
+                            <span class="pro-mark" style="color: red;">¥</span>
+                            <span style="color: red;">258.00</span>
+                        </div>
+                        <div style="padding-top: 15px;color: #EEA236;">
+                            活动：储存最高可送：
+                            <span class="pro-mark">¥</span>
+                            <span>1248.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

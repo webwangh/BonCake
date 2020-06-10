@@ -1,0 +1,84 @@
+.border-bor tr{
+	border-bottom: 1px solid #B9B9B9;
+	text-align: center;
+}
+.td-pic{
+	height: 140px;
+}
+.td-close{
+	height: 20px;
+}
+.td-select {
+    position: relative;
+    width: 200px;
+	margin-left: -90px;
+	margin-top: -15px;
+	
+}
+table{
+	font-size: 16px;
+}
+.mock-select {
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    padding-left: -9px;
+    text-align: left;
+    -webkit-border-radius: 6px;
+    border: solid 1px #999999;
+    font-size: 15px;
+    color: #333333;
+    -webkit-box-sizing: border-box;
+    outline: none;
+	position: absolute;
+}
+.mock-select-icon{
+	position: relative;
+	top: 5px;
+	left: 60px;
+	
+}
+.mock-option{
+	list-style: none;
+	text-align: left;
+	margin-top: 20px;
+	border: 1px solid #999999;
+
+}
+.mock-option-btn{
+	background-color: #D3B145;
+	border: 1px solid #D3B145;
+	width: 60px;
+	height: 30px;
+	color: white;
+	font-size: 14px;
+}
+.mock-option li{
+	margin-left: -30px;
+}
+.mock-option-input{
+	margin-left: -20px;
+}
+.number-group{
+	width: 30px;
+}
+.td-number{
+	position: absolute;
+	width: 100px;
+	border-radius: 5px;
+	border: 1px solid #999999;
+	height: 26px;
+	margin-left: 18px;
+}
+.td-number-icon{
+	position: relative;
+	border-radius: 5px;
+	left: 97px;
+	top: 1px;
+}
+.content_ul1 li{
+	list-style: none;
+	border: 1px solid #E3E3E3;
+	margin: 10px;
+	width: 280px;
+}

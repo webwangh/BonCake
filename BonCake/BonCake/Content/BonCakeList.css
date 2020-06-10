@@ -1,0 +1,39 @@
+#head{
+	position: fixed;
+	background-color: white;
+	width: 100%;
+	box-shadow: 0px 0px 10px 0px #D4D4D4;
+	z-index: 1;
+}
+#content{
+	padding-top: 100px;
+}
+.content_ul li{
+	list-style: none;
+	border: 1px solid #E3E3E3;
+	margin: 10px;
+	width: 280px;
+}
+.pro-buy{
+	background-color: black;
+	color: white;
+	height: 30px;
+	width: 80px;
+	text-align: center;
+	line-height: 30px;
+	margin-left: auto;
+}
+.pro-buy a{
+	color: white;
+}
+.btn-icon{
+	color: white;
+}
+.li_hover{
+	cursor: pointer;
+	transition: all 1.5s;
+}
+.li_hover:hover{
+	transform: scale(1.05);
+	
+}

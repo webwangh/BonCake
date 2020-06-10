@@ -12,6 +12,16 @@ $(function () {
 });
 $(function () {
     $('#collapseOne').collapse('hide')
+    $(".content_down-icon").click(function () {
+        $(".content_down-icon2").css("padding", "1010px 0px 0px 0px");
+        $(".content_down-icon").click(function () {
+            $(".content_down-icon2").css("padding", "0px 0px 0px 0px");
+        })
+    })
+    var num = $("input[name=num]").val();
+    $(".Goods_Num_img").click(function () {
+        num = num + 1;
+    })
 });
 $(function () {
     var sdBoxW = $('.moveBox').css('width');
@@ -75,10 +85,5 @@ $(function () {
     });
 
 
-    $(".content_down-icon").click(function () {
-        $(".content_down-icon2").css("padding", "1010px 0px 0px 0px");
-        $(".content_down-icon").click(function () {
-            $(".content_down-icon2").css("padding", "0px 0px 0px 0px");
-        })
-    })
+   
 })
