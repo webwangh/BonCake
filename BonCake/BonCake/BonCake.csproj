@@ -89,14 +89,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\BonCake.css" />
+    <Content Include="Content\BonCakeList.css" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\ShoppingCar.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Goods\1ed06351aec357d5a7757d2990aa44f922748e81.jpg" />
+    <Content Include="Images\Goods\28fb6e48fa0f49fd90a64f57d0accb9c60eb9f78.jpg" />
+    <Content Include="Images\Goods\2bf618bacfcf3df2f778260b006143a8f19b0d91.jpg" />
     <Content Include="Images\31a4fcb5c38f252f9394656d9f55e92b5b91188f.jpg" />
+    <Content Include="Images\Goods\328e1fcc4b21cde6a86c7850d935795651edf7f2.jpg" />
     <Content Include="Images\51e69d5e6d716d7f0a1e879cb0f2fddcda052710.jpg" />
+    <Content Include="Images\Goods\5325864126e089b8e31473f8b50259a4304a6b04.jpg" />
+    <Content Include="Images\Goods\5678569e95462e7c8924238dca74ad5f0dc5afd3.jpg" />
     <Content Include="Images\5f932de5fa1bb5013b899d7f12d1a342bfa7700f.jpg" />
     <Content Include="Images\63b1b94e7d390ef6aa329fc85744177b48236888.jpg" />
     <Content Include="Images\64cdddb530b4b1ef0c1981273287388580b6f3a9.jpg" />
+    <Content Include="Images\Goods\6b0d8ce3480bd932ddc7746b5747dad4dca46847.jpg" />
+    <Content Include="Images\Goods\7ee5eac8e4a5200ad73b3adc02a85e49ded0f887.jpg" />
+    <Content Include="Images\Goods\83849e966936ba211a45c00c84037a2a7f3cf3c0.jpg" />
+    <Content Include="Images\Goods\ac3c96216c88209cd6a9d6ffa4bf1af89fa02f92.jpg" />
+    <Content Include="Images\Goods\b8757a49b94e416f0f07f4c4f85b304259e0ad6b.png" />
     <Content Include="Images\Banner\banner_1.jpg" />
     <Content Include="Images\Banner\banner_2.jpg" />
     <Content Include="Images\banner_1.jpg" />
@@ -105,11 +118,14 @@
     <Content Include="Images\bg2.png" />
     <Content Include="Images\bg3.jpg" />
     <Content Include="Images\birth-icon.png" />
+    <Content Include="Images\Goods\c3e3136ce2c750c2db0c91eb6a66fef1a1e194a4.png" />
     <Content Include="Images\card-info.png" />
     <Content Include="Images\coupon-icon.png" />
+    <Content Include="Images\Goods\d742701ff2ac7b40814365133cb89e401dd1b4ef.jpg" />
     <Content Include="Images\discount-icon.png" />
     <Content Include="Images\dot.png" />
     <Content Include="Images\edit-icon.png" />
+    <Content Include="Images\Goods\fde868fb830e7284bd1b9406e52ea9355e1c18c0.jpg" />
     <Content Include="Images\gift-icon.png" />
     <Content Include="Images\Goods\Goods_Big_Gogo.jpg" />
     <Content Include="Images\Goods\Goods_Big_RubyPlanet.jpg" />
@@ -245,6 +261,8 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\Regist.cshtml" />
     <Content Include="Views\Login\UserCenter.cshtml" />
+    <Content Include="Views\Login\ShoppingCar.cshtml" />
+    <Content Include="Views\Index\AllGoods.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

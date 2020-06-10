@@ -17,5 +17,9 @@ namespace BonCake.Controllers
         {
             return View();
         }
+        public ActionResult AllGoods()
+        {
+            return View();
+        }
     }
 }

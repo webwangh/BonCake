@@ -21,5 +21,9 @@ namespace BonCake.Controllers
         {
             return View();
         }
+        public ActionResult ShoppingCar()
+        {
+            return View();
+        }
     }
 }

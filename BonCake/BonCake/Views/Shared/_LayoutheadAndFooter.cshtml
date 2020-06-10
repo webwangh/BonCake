@@ -6,6 +6,8 @@
     <title>@ViewBag.Title</title>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/BonCake.css" rel="stylesheet" />
+    <link href="~/Content/BonCakeList.css" rel="stylesheet" />
+    <link href="~/Content/ShoppingCar.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-3.2.1.js"></script>
     <link rel="shortcut icon" href="../Images/icon.ico" />
     <script src="~/Scripts/bootstrap.js"></script>
@@ -16,7 +18,7 @@
 <body>
     <div>
         <header>
-            <div class="header_box">
+            <div class="header_box" id="head">
                 <div class="row col-lg-offset-2">
                     <a href="" class="col-lg-2 header_logo text-right">
                         <img src="../Images/logo_top.png" alt="">
@@ -26,7 +28,7 @@
                             <span class="China">首页</span><br>
                             <span class="English"> HOME</span>
                         </a>
-                        <a href="">
+                        <a href="/Index/AllGoods">
                             <span class="China">所有商品</span><br>
                             <span class="English"> PRODUCTS</span>
                         </a>
@@ -55,7 +57,7 @@
                             </a>
                         </div>
                         <div>
-                            <a href="">
+                            <a href="/Login/Regist">
                                 <img src="../Images/Icon/register-icon.png" alt="">
                                 <span>注册</span>
                             </a>
@@ -93,7 +95,7 @@
                             </ul>
                         </div>
                         <div>
-                            <a href="">
+                            <a href="/Login/ShoppingCar">
                                 <img src="../Images/Icon/cart-icon.png" alt="">
                                 <span>购物车<a href="">(<a href="">0</a>)</a></span>
                             </a>

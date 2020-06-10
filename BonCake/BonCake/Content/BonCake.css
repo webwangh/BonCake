@@ -44,15 +44,19 @@
 /* 中心内容部分 */
 .content {
 	position: relative;
+	padding-top: 92px;
+}
+.content_goodsInfo {
+	padding-top: 92px;
 }
 .content_down-icon {
 	position: absolute;
-	top: 872px;
+	top: 964px;
 	left: 915px;
 }
 .content_down-icon2 {
 	position: absolute;
-	top: 1788px;
+	top: 1880px;
 	left: 915px;
 }
 .content_GoodsInfo_1{
