@@ -246,6 +246,12 @@
     <Content Include="Models\BonCake.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>BonCake.Context.cs</LastGenOutput>
+      <DependentUpon>BonCake.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\BonCake.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BonCake.edmx</DependentUpon>
+      <LastGenOutput>BonCake.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\BonCake.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -261,15 +267,44 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BannerIndex.cs">
+      <DependentUpon>BonCake.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\BonCake.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BonCake.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BonCake.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BonCake.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\BonCake.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BonCake.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CakeImages.cs">
+      <DependentUpon>BonCake.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CakeParts.cs">
+      <DependentUpon>BonCake.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CakeShopCar.cs">
+      <DependentUpon>BonCake.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CakeShops.cs">
+      <DependentUpon>BonCake.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoginUser.cs">
+      <DependentUpon>BonCake.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>BonCake.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Verification.cs">
+      <DependentUpon>BonCake.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -283,9 +318,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BonCake.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\BonCake.edmx.diagram">
+    <Content Include="Models\BonCake.edmx.diagram">
       <DependentUpon>BonCake.edmx</DependentUpon>
-    </None>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutheadAndFooter.cshtml" />
     <Content Include="Views\Index\Index.cshtml" />
