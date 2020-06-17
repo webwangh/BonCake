@@ -113,16 +113,18 @@
                     <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
                     <span class="yanzhengmalogin_2">&nbsp;&nbsp;手机验证码登录</span>
                 </p>
-                <div class="section_content_input">
-                    <input type="text" name="" id="" value="" placeholder="&nbsp;&nbsp;用户名/邮箱地址/手机号" class="input_userName" />
-                    <input type="text" name="" id="" value="" placeholder="&nbsp;&nbsp;请输入您的密码" class="input_userName" />
-                    <input class="input_btn_login" type="button" value=" 登录 " />
-                    <p>
-                        <input type="checkbox" name="" id="" value="" style="margin-top: 8%;" />记住密码
-                        <span class="col-lg-offset-5">忘记密码</span>
-                        <a href="" style="margin-left: 3%;color: #000000;text-decoration: none;">去注册</a>
-                    </p>
-                </div>
+                <form action="/Login/LoginUser" method="post">
+                    <div class="section_content_input">
+                        <input type="text" name="" id="" value="" placeholder="&nbsp;&nbsp;用户名/邮箱地址/手机号" class="input_userName" />
+                        <input type="text" name="" id="" value="" placeholder="&nbsp;&nbsp;请输入您的密码" class="input_userName" />
+                        <input class="input_btn_login" type="button" value=" 登录 " />
+                        <p>
+                            <input type="checkbox" name="" id="" value="" style="margin-top: 8%;" />记住密码
+                            <span class="col-lg-offset-5">忘记密码</span>
+                            <a href="" style="margin-left: 3%;color: #000000;text-decoration: none;">去注册</a>
+                        </p>
+                    </div>
+                </form>
                 <div style="margin-top: 8%;" class="text-center">
                     <img src="../Images/line-pic2.png" width="160" />
                     <span style="font-size: 14px;">&nbsp;&nbsp;快捷登录&nbsp;&nbsp;</span>

@@ -43,7 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -235,6 +243,16 @@
     <Content Include="Images\vip-icon.png" />
     <Content Include="Images\warn-icon.png" />
     <Content Include="Images\wx-chat.png" />
+    <Content Include="Models\BonCake.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BonCake.Context.cs</LastGenOutput>
+      <DependentUpon>BonCake.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\BonCake.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BonCake.edmx</DependentUpon>
+      <LastGenOutput>BonCake.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\BonCake.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\gVerify.js" />
@@ -249,6 +267,45 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BannerIndex.cs">
+      <DependentUpon>BonCake.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BonCake.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BonCake.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BonCake.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BonCake.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BonCake.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BonCake.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CakeImages.cs">
+      <DependentUpon>BonCake.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CakeParts.cs">
+      <DependentUpon>BonCake.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CakeShopCar.cs">
+      <DependentUpon>BonCake.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CakeShops.cs">
+      <DependentUpon>BonCake.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoginUser.cs">
+      <DependentUpon>BonCake.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>BonCake.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Verification.cs">
+      <DependentUpon>BonCake.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -257,6 +314,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <EntityDeploy Include="Models\BonCake.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BonCake.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\BonCake.edmx.diagram">
+      <DependentUpon>BonCake.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutheadAndFooter.cshtml" />
     <Content Include="Views\Index\Index.cshtml" />
@@ -275,7 +339,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

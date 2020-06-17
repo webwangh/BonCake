@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BonCakeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BannerIndex">
+          <Key>
+            <PropertyRef Name="bannerId" />
+          </Key>
+          <Property Name="bannerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bannerImg" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="cakeType" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CakeImages">
+          <Key>
+            <PropertyRef Name="imgId" />
+          </Key>
+          <Property Name="imgId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imgName" Type="varchar" MaxLength="300" />
+          <Property Name="cakeId" Type="int" />
+        </EntityType>
+        <EntityType Name="CakeParts">
+          <Key>
+            <PropertyRef Name="partsId" />
+          </Key>
+          <Property Name="partsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="partsEnName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="partsChName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="partsPrice" Type="int" Nullable="false" />
+          <Property Name="partsImg" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="CakeShopCar">
+          <Key>
+            <PropertyRef Name="carId" />
+          </Key>
+          <Property Name="carId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cakeId" Type="int" />
+          <Property Name="cakeNum" Type="int" />
+          <Property Name="cakeBrand" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="CakeShops">
+          <Key>
+            <PropertyRef Name="cakeId" />
+          </Key>
+          <Property Name="cakeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cakeSize" Type="varchar" MaxLength="20" />
+          <Property Name="cakeEnName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="cakeChName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="cakePrice" Type="int" Nullable="false" />
+          <Property Name="cakeType" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="cakeTest" Type="nvarchar" MaxLength="200" />
+          <Property Name="cakeImg" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="LoginUser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="loginName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="loginPwd" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="loginUser" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userSex" Type="nvarchar" MaxLength="20" />
+          <Property Name="userName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="userPwd" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="userPhone" Type="char" MaxLength="11" />
+          <Property Name="userData" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Verification">
+          <Key>
+            <PropertyRef Name="verId" />
+          </Key>
+          <Property Name="verId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="phoneCode" Type="varchar" MaxLength="11" />
+        </EntityType>
+        <Association Name="FK__CakeImage__cakeI__4222D4EF">
+          <End Role="CakeShops" Type="Self.CakeShops" Multiplicity="0..1" />
+          <End Role="CakeImages" Type="Self.CakeImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CakeShops">
+              <PropertyRef Name="cakeId" />
+            </Principal>
+            <Dependent Role="CakeImages">
+              <PropertyRef Name="cakeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CakeShopC__cakeI__46E78A0C">
+          <End Role="CakeShops" Type="Self.CakeShops" Multiplicity="0..1" />
+          <End Role="CakeShopCar" Type="Self.CakeShopCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CakeShops">
+              <PropertyRef Name="cakeId" />
+            </Principal>
+            <Dependent Role="CakeShopCar">
+              <PropertyRef Name="cakeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BonCakeModelStoreContainer">
+          <EntitySet Name="BannerIndex" EntityType="Self.BannerIndex" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CakeImages" EntityType="Self.CakeImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CakeParts" EntityType="Self.CakeParts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CakeShopCar" EntityType="Self.CakeShopCar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CakeShops" EntityType="Self.CakeShops" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginUser" EntityType="Self.LoginUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Verification" EntityType="Self.Verification" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CakeImage__cakeI__4222D4EF" Association="Self.FK__CakeImage__cakeI__4222D4EF">
+            <End Role="CakeShops" EntitySet="CakeShops" />
+            <End Role="CakeImages" EntitySet="CakeImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CakeShopC__cakeI__46E78A0C" Association="Self.FK__CakeShopC__cakeI__46E78A0C">
+            <End Role="CakeShops" EntitySet="CakeShops" />
+            <End Role="CakeShopCar" EntitySet="CakeShopCar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BonCakeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BannerIndex">
+          <Key>
+            <PropertyRef Name="bannerId" />
+          </Key>
+          <Property Name="bannerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bannerImg" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cakeType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CakeImages">
+          <Key>
+            <PropertyRef Name="imgId" />
+          </Key>
+          <Property Name="imgId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imgName" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="cakeId" Type="Int32" />
+          <NavigationProperty Name="CakeShops" Relationship="Self.FK__CakeImage__cakeI__4222D4EF" FromRole="CakeImages" ToRole="CakeShops" />
+        </EntityType>
+        <EntityType Name="CakeParts">
+          <Key>
+            <PropertyRef Name="partsId" />
+          </Key>
+          <Property Name="partsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="partsEnName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="partsChName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="partsPrice" Type="Int32" Nullable="false" />
+          <Property Name="partsImg" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CakeShopCar">
+          <Key>
+            <PropertyRef Name="carId" />
+          </Key>
+          <Property Name="carId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cakeId" Type="Int32" />
+          <Property Name="cakeNum" Type="Int32" />
+          <Property Name="cakeBrand" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CakeShops" Relationship="Self.FK__CakeShopC__cakeI__46E78A0C" FromRole="CakeShopCar" ToRole="CakeShops" />
+        </EntityType>
+        <EntityType Name="CakeShops">
+          <Key>
+            <PropertyRef Name="cakeId" />
+          </Key>
+          <Property Name="cakeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cakeSize" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cakeEnName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cakeChName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cakePrice" Type="Int32" Nullable="false" />
+          <Property Name="cakeType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cakeTest" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="cakeImg" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CakeImages" Relationship="Self.FK__CakeImage__cakeI__4222D4EF" FromRole="CakeShops" ToRole="CakeImages" />
+          <NavigationProperty Name="CakeShopCar" Relationship="Self.FK__CakeShopC__cakeI__46E78A0C" FromRole="CakeShops" ToRole="CakeShopCar" />
+        </EntityType>
+        <EntityType Name="LoginUser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="loginName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="loginPwd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="loginUser1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userSex" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="userName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userPwd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userPhone" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="userData" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Verification">
+          <Key>
+            <PropertyRef Name="verId" />
+          </Key>
+          <Property Name="verId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phoneCode" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__CakeImage__cakeI__4222D4EF">
+          <End Role="CakeShops" Type="Self.CakeShops" Multiplicity="0..1" />
+          <End Role="CakeImages" Type="Self.CakeImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CakeShops">
+              <PropertyRef Name="cakeId" />
+            </Principal>
+            <Dependent Role="CakeImages">
+              <PropertyRef Name="cakeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CakeShopC__cakeI__46E78A0C">
+          <End Role="CakeShops" Type="Self.CakeShops" Multiplicity="0..1" />
+          <End Role="CakeShopCar" Type="Self.CakeShopCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CakeShops">
+              <PropertyRef Name="cakeId" />
+            </Principal>
+            <Dependent Role="CakeShopCar">
+              <PropertyRef Name="cakeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BonCakeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BannerIndex" EntityType="Self.BannerIndex" />
+          <EntitySet Name="CakeImages" EntityType="Self.CakeImages" />
+          <EntitySet Name="CakeParts" EntityType="Self.CakeParts" />
+          <EntitySet Name="CakeShopCar" EntityType="Self.CakeShopCar" />
+          <EntitySet Name="CakeShops" EntityType="Self.CakeShops" />
+          <EntitySet Name="LoginUser" EntityType="Self.LoginUser" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="Verification" EntityType="Self.Verification" />
+          <AssociationSet Name="FK__CakeImage__cakeI__4222D4EF" Association="Self.FK__CakeImage__cakeI__4222D4EF">
+            <End Role="CakeShops" EntitySet="CakeShops" />
+            <End Role="CakeImages" EntitySet="CakeImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CakeShopC__cakeI__46E78A0C" Association="Self.FK__CakeShopC__cakeI__46E78A0C">
+            <End Role="CakeShops" EntitySet="CakeShops" />
+            <End Role="CakeShopCar" EntitySet="CakeShopCar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BonCakeModelStoreContainer" CdmEntityContainer="BonCakeEntities">
+          <EntitySetMapping Name="BannerIndex">
+            <EntityTypeMapping TypeName="BonCakeModel.BannerIndex">
+              <MappingFragment StoreEntitySet="BannerIndex">
+                <ScalarProperty Name="bannerId" ColumnName="bannerId" />
+                <ScalarProperty Name="bannerImg" ColumnName="bannerImg" />
+                <ScalarProperty Name="cakeType" ColumnName="cakeType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CakeImages">
+            <EntityTypeMapping TypeName="BonCakeModel.CakeImages">
+              <MappingFragment StoreEntitySet="CakeImages">
+                <ScalarProperty Name="imgId" ColumnName="imgId" />
+                <ScalarProperty Name="imgName" ColumnName="imgName" />
+                <ScalarProperty Name="cakeId" ColumnName="cakeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CakeParts">
+            <EntityTypeMapping TypeName="BonCakeModel.CakeParts">
+              <MappingFragment StoreEntitySet="CakeParts">
+                <ScalarProperty Name="partsId" ColumnName="partsId" />
+                <ScalarProperty Name="partsEnName" ColumnName="partsEnName" />
+                <ScalarProperty Name="partsChName" ColumnName="partsChName" />
+                <ScalarProperty Name="partsPrice" ColumnName="partsPrice" />
+                <ScalarProperty Name="partsImg" ColumnName="partsImg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CakeShopCar">
+            <EntityTypeMapping TypeName="BonCakeModel.CakeShopCar">
+              <MappingFragment StoreEntitySet="CakeShopCar">
+                <ScalarProperty Name="carId" ColumnName="carId" />
+                <ScalarProperty Name="cakeId" ColumnName="cakeId" />
+                <ScalarProperty Name="cakeNum" ColumnName="cakeNum" />
+                <ScalarProperty Name="cakeBrand" ColumnName="cakeBrand" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CakeShops">
+            <EntityTypeMapping TypeName="BonCakeModel.CakeShops">
+              <MappingFragment StoreEntitySet="CakeShops">
+                <ScalarProperty Name="cakeId" ColumnName="cakeId" />
+                <ScalarProperty Name="cakeSize" ColumnName="cakeSize" />
+                <ScalarProperty Name="cakeEnName" ColumnName="cakeEnName" />
+                <ScalarProperty Name="cakeChName" ColumnName="cakeChName" />
+                <ScalarProperty Name="cakePrice" ColumnName="cakePrice" />
+                <ScalarProperty Name="cakeType" ColumnName="cakeType" />
+                <ScalarProperty Name="cakeTest" ColumnName="cakeTest" />
+                <ScalarProperty Name="cakeImg" ColumnName="cakeImg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginUser">
+            <EntityTypeMapping TypeName="BonCakeModel.LoginUser">
+              <MappingFragment StoreEntitySet="LoginUser">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="loginName" ColumnName="loginName" />
+                <ScalarProperty Name="loginPwd" ColumnName="loginPwd" />
+                <ScalarProperty Name="loginUser1" ColumnName="loginUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="BonCakeModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userSex" ColumnName="userSex" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userPwd" ColumnName="userPwd" />
+                <ScalarProperty Name="userPhone" ColumnName="userPhone" />
+                <ScalarProperty Name="userData" ColumnName="userData" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Verification">
+            <EntityTypeMapping TypeName="BonCakeModel.Verification">
+              <MappingFragment StoreEntitySet="Verification">
+                <ScalarProperty Name="verId" ColumnName="verId" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="phoneCode" ColumnName="phoneCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
