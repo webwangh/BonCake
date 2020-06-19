@@ -11,6 +11,7 @@ namespace BonCake.Controllers
         // GET: Index
         public ActionResult Index()
         {
+
             return View();
         }
         public ActionResult GoodsInfo()
