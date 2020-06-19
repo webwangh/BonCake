@@ -100,6 +100,7 @@
     <Content Include="Content\BonCake.css" />
     <Content Include="Content\BonCakeList.css" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrapValidator.css" />
     <Content Include="Content\ShoppingCar.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -256,6 +257,7 @@
     </Content>
     <Content Include="Scripts\BonCake.js" />
     <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrapValidator.js" />
     <Content Include="Scripts\gVerify.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\login.js" />

@@ -83,132 +83,110 @@
                 <p class="section_content_logintype text-center">
                     用户注册
                 </p>
-                <div class="section_content_input">
-                    <input type="text" name="" id="" value="" placeholder="&nbsp;&nbsp;请输入11位手机号" class="input_userName" />
-                    <input type="text" name="" id="" value="" placeholder="&nbsp;&nbsp;密码(6-20个字符)" class="input_userName" />
-                    <input type="text" name="" id="" value="" placeholder="&nbsp;&nbsp;再次填写密码" class="input_userName" />
-                    <input id="" type="text" placeholder="&nbsp;&nbsp;*验证码" class="input_userName" style="width: 60%;" />
-                    <span id="v_container" style=" display:inline-block;vertical-align: middle;"></span>
-                    <input class="input_userName" id="code" name="code" type="text" placeholder="&nbsp;&nbsp;*短信验证码" style="width: 50%;" />
-                    <input class="input_btn" id="zphone" type="button" value=" 获取验证码 " onClick="get_mobile_code();">
-                    <input class="input_btn_login" type="button" value=" 注册 " />
-                    <p>
-                        <input type="checkbox" name="" id="" value="" style="margin-top: 8%;" />
-                        已阅读并同意注册协议
-                    </p>
-                </div>
-
+                <form action="/Login/Regist" method="post" id="Form_Regist" enctype="multipart/form-data">
+                    <div class="section_content_input">
+                        <div class="form-group">
+                            <input type="text" name="userPhone" id="" value="" placeholder="&nbsp;&nbsp;请输入11位手机号" class="input_userName " />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="userPwd" id="" value="" placeholder="&nbsp;&nbsp;密码(6-20个字符)" class="input_userName" />
+                        </div>
+                        <div class="form-groupl">
+                            <input type="text" name="confirmPwd" id="" value="" placeholder="&nbsp;&nbsp;再次填写密码" class="input_userName" />
+                        </div>
+                        <div class="form-group">
+                            <input id="" type="text" placeholder="&nbsp;&nbsp;*验证码" class="input_userName" style="width: 60%;" />
+                            <span id="v_container" style=" display:inline-block;vertical-align: middle;"></span>
+                        </div>
+                        <div class="form-group">
+                            <input class="input_btn_login" type="submit" value=" 注册 " />
+                        </div>
+                        
+                        <p>
+                            <input type="checkbox" name="" id="" value="" style="margin-top: 8%;" />
+                            已阅读并同意注册协议
+                        </p>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </section>
 
 <script type="text/javascript">
+
+    $('#Form_Regist').bootstrapValidator({
+        message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            
+            userPwd: {
+                validators: {
+                    notEmpty: {
+                        message: '密码不能为空'
+                    },
+                    stringLength: {
+                        min: 8,
+                        max: 12,
+                        message: '密码长度必须在6到12位之间'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_]+$/,
+                        message: '密码只能包含大写、小写、数字和下划线'
+                    },
+                    different: {  //比较
+                        field: 'userName', //需要进行比较的input name值
+                        message: '密码不能与用户名相同'
+                    }
+                }
+            },
+            confirmPwd: {
+                validators: {
+                    notEmpty: {
+                        message: '确认密码不能为空'
+                    },
+                    identical: {  //比较是否相同
+                        field: 'pwd',  //需要进行比较的input name值
+                        message: '两次密码不一致'
+                    }
+                }
+            },
+            userPhone: {
+                validators: {
+                    notEmpty: {
+                        message: '手机号不能为空'
+                    },
+                    regexp: {
+                        regexp: /^1(3|4|5|7|8)\d{9}$/,
+                        message: '手机号码不符合规则'
+                    },
+                    remote: { // ajax校验，获得一个json数据（{'valid': true or false}）
+                        url: '/Login/CheckPhone',       //验证地址
+                        message: '手机号已存在',   //提示信息
+                        type: 'POST',          //请求方式
+                        data: function (validator) {  //自定义提交数据，默认为当前input name值
+                            return {
+                                act: 'is_registered',
+                                userPhone: $("input[name='userPhone']").val()
+                            };
+                        }
+                    }
+                }
+            }
+        }
+    });
+        
+
     var verifyCode = new GVerify("v_container");
     function get_mobile_code() {
         var mobile = $('#mobile').val();
         var res = verifyCode.validate(document.getElementById("code_input").value);
-        if (!isPhoneNo(mobile)) {
-            $('.message_phone').text("*手机号码有误，请重填");
-            return false;
-        }
-        $('.message_phone').text("");
-        if (!res) {
-            $('.message_yanzheng').text("*验证码错误");
-            return false;
-        }
-        $('.message_yanzheng').text("");
-        console.log('将要发送手机验证码' + mobile)
-        $.post({
-            url: 'http://xiashu.fun:5349/user/getSmsByPhone/' + mobile,
-            success: function (result) {
-                if (result.code == 200) {
-                    console.log(result.data)
-                }
+        };
 
-            }
-        });
-    };
-    $("#embed-submit").click(function (e) {
-        var mobile = $("#mobile").val();
-        var code = $("#code").val();
-        if (mobile == "") {
-            $('.message_phone').text("*手机号码有误，请重填");
-            return false;
-        }
-        $('.message_phone').text("");
-        if (code == "") {
-            alert('手机验证码不能为空');
-            return false;
-        }
-        var res = verifyCode.validate(document.getElementById("code_input").value);
-        if (!res) {
-            alert("图形验证码错误");
-            return false;
-        }
-
-
-    });
-    $("#embed-submit1").click(function (e) {
-        var phone = $("input[name='phone']").val();
-        var password = $("input[name='password']").val();
-        $.post({
-            url: 'http://xiashu.fun:5349/user/checkUserByInfo/' + phone + '/' + password,
-            success: function (result) {
-                if (result.code == 200) {
-                    if (phone == result.data.phone && password == result.data.password) {
-                        console.log('用户名密码正确')
-                        window.location = "new_index.html"
-                    }
-                    else {
-                        console.log('用户名或密码不匹配')
-                    }
-
-                }
-
-            }
-        })
-    });
-
-    var iTime = 59;
-    var Account;
-    function RemainTime() {
-        document.getElementById('zphone').disabled = true;
-        var iSecond, sSecond = "", sTime = "";
-        if (iTime >= 0) {
-            iSecond = parseInt(iTime % 60);
-            iMinute = parseInt(iTime / 60)
-            if (iSecond >= 0) {
-                if (iMinute > 0) {
-                    sSecond = iMinute + "分" + iSecond + "秒";
-                } else {
-                    sSecond = iSecond + "秒";
-                }
-            }
-            sTime = sSecond;
-            if (iTime == 0) {
-                clearTimeout(Account);
-                sTime = '获取手机验证码';
-                iTime = 59;
-                document.getElementById('zphone').disabled = false;
-            } else {
-                Account = setTimeout("RemainTime()", 1000);
-                iTime = iTime - 1;
-            }
-        } else {
-            sTime = '没有倒计时';
-        }
-        document.getElementById('zphone').value = sTime;
-    }
-
-
-
-
-    // 验证手机号
-    function isPhoneNo(phone) {
-        var pattern = /^1[34578]\d{9}$/;
-        return pattern.test(phone);
-    }
 
 </script>
 
