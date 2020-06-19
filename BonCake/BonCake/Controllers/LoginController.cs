@@ -14,11 +14,11 @@ namespace BonCake.Controllers
         {
             return View();
         }
-        public ActionResult LoginUser(User user)
+        public ActionResult LoginUser(LoginUser user)
         {
             using (BonCakeEntities db = new BonCakeEntities())
             {
-                var loginUser = db.User.Where(u => u.userName.Equals(user.userName) && u.userPwd.Equals(user.userPwd)).SingleOrDefault();
+                var loginUser = db.LoginUser.Where(u => u.loginName.Equals(user.loginName) && u.loginPwd.Equals(user.loginPwd)).SingleOrDefault();
                 if (loginUser == null)
                 {
                     //提示：用户名或密码错误
@@ -30,7 +30,7 @@ namespace BonCake.Controllers
                 //Session["UserName"] = loginUser.userName;
                 //Session["HeadPic"] = loginUser.userPhone;
                 Session["user"] = loginUser;
-                return RedirectToAction("Index");
+                return RedirectToAction("../Index/Index");
             }
         }
         public ActionResult Regist()

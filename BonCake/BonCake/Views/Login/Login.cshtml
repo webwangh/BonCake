@@ -115,8 +115,8 @@
                 </p>
                 <form action="/Login/LoginUser" method="post">
                     <div class="section_content_input">
-                        <input type="text" name="" id="" value="" placeholder="&nbsp;&nbsp;用户名/邮箱地址/手机号" class="input_userName" />
-                        <input type="text" name="" id="" value="" placeholder="&nbsp;&nbsp;请输入您的密码" class="input_userName" />
+                        <input type="text" name="loginName" id="" value="" placeholder="&nbsp;&nbsp;用户名/邮箱地址/手机号" class="input_userName" />
+                        <input type="text" name="loginPwd" id="" value="" placeholder="&nbsp;&nbsp;请输入您的密码" class="input_userName" />
                         <input class="input_btn_login" type="button" value=" 登录 " />
                         <p>
                             <input type="checkbox" name="" id="" value="" style="margin-top: 8%;" />记住密码
@@ -184,26 +184,7 @@
 
 
     });
-    $("#embed-submit1").click(function (e) {
-        var phone = $("input[name='phone']").val();
-        var password = $("input[name='password']").val();
-        $.post({
-            url: 'http://xiashu.fun:5349/user/checkUserByInfo/' + phone + '/' + password,
-            success: function (result) {
-                if (result.code == 200) {
-                    if (phone == result.data.phone && password == result.data.password) {
-                        console.log('用户名密码正确')
-                        window.location = "new_index.html"
-                    }
-                    else {
-                        console.log('用户名或密码不匹配')
-                    }
 
-                }
-
-            }
-        })
-    });
 
     var iTime = 59;
     var Account;
