@@ -12,11 +12,12 @@ namespace BonCake.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LoginUser
+    public partial class LoginUsers
     {
         public int id { get; set; }
         public string loginName { get; set; }
         public string loginPwd { get; set; }
-        public string loginUser1 { get; set; }
+        public string loginUser { get; set; }
+        public string loginImg { get; set; }
     }
 }

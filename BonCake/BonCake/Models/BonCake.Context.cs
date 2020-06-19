@@ -13,10 +13,10 @@ namespace BonCake.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BonCakeEntities : DbContext
+    public partial class BonCakeEntities1 : DbContext
     {
-        public BonCakeEntities()
-            : base("name=BonCakeEntities")
+        public BonCakeEntities1()
+            : base("name=BonCakeEntities1")
         {
         }
     
@@ -30,7 +30,8 @@ namespace BonCake.Models
         public virtual DbSet<CakeParts> CakeParts { get; set; }
         public virtual DbSet<CakeShopCar> CakeShopCar { get; set; }
         public virtual DbSet<CakeShops> CakeShops { get; set; }
-        public virtual DbSet<LoginUser> LoginUser { get; set; }
+        public virtual DbSet<CakeTypes> CakeTypes { get; set; }
+        public virtual DbSet<LoginUsers> LoginUsers { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Verification> Verification { get; set; }
     }

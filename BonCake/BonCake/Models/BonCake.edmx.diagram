@@ -4,17 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="58c5fb74c8b945f2b04f60559dd1d7c9" Name="Diagram1">
+      <Diagram DiagramId="8ff355243fa9447a9e73e88c5abcd499" Name="Diagram1">
         <EntityTypeShape EntityType="BonCakeModel.BannerIndex" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BonCakeModel.CakeImages" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="BonCakeModel.CakeParts" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BonCakeModel.CakeShopCar" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BonCakeModel.CakeShops" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BonCakeModel.LoginUser" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BonCakeModel.User" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BonCakeModel.Verification" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
-        <AssociationConnector Association="BonCakeModel.FK__CakeImage__cakeI__4222D4EF" ManuallyRouted="false" />
-        <AssociationConnector Association="BonCakeModel.FK__CakeShopC__cakeI__46E78A0C" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BonCakeModel.CakeTypes" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BonCakeModel.LoginUsers" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BonCakeModel.User" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BonCakeModel.Verification" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="BonCakeModel.FK__CakeImage__cakeI__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="BonCakeModel.FK__CakeShopC__cakeI__4BAC3F29" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

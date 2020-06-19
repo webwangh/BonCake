@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="BonCakeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BonCakeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BannerIndex">
           <Key>
             <PropertyRef Name="bannerId" />
@@ -45,7 +45,7 @@
             <PropertyRef Name="cakeId" />
           </Key>
           <Property Name="cakeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="cakeSize" Type="varchar" MaxLength="20" />
+          <Property Name="cakeSize" Type="nvarchar" MaxLength="20" />
           <Property Name="cakeEnName" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="cakeChName" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="cakePrice" Type="int" Nullable="false" />
@@ -53,14 +53,24 @@
           <Property Name="cakeTest" Type="nvarchar" MaxLength="200" />
           <Property Name="cakeImg" Type="varchar" MaxLength="300" />
         </EntityType>
-        <EntityType Name="LoginUser">
+        <EntityType Name="CakeTypes">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="loginName" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="loginPwd" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="loginUser" Type="nvarchar" MaxLength="20" />
+          <Property Name="typeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="typeEnName" Type="varchar" MaxLength="50" />
+          <Property Name="typeImg" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="LoginUsers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="loginName" Type="varchar" MaxLength="30" />
+          <Property Name="loginPwd" Type="varchar" MaxLength="30" />
+          <Property Name="loginUser" Type="varchar" MaxLength="30" />
+          <Property Name="loginImg" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -81,7 +91,7 @@
           <Property Name="code" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="phoneCode" Type="varchar" MaxLength="11" />
         </EntityType>
-        <Association Name="FK__CakeImage__cakeI__4222D4EF">
+        <Association Name="FK__CakeImage__cakeI__46E78A0C">
           <End Role="CakeShops" Type="Self.CakeShops" Multiplicity="0..1" />
           <End Role="CakeImages" Type="Self.CakeImages" Multiplicity="*" />
           <ReferentialConstraint>
@@ -93,7 +103,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CakeShopC__cakeI__46E78A0C">
+        <Association Name="FK__CakeShopC__cakeI__4BAC3F29">
           <End Role="CakeShops" Type="Self.CakeShops" Multiplicity="0..1" />
           <End Role="CakeShopCar" Type="Self.CakeShopCar" Multiplicity="*" />
           <ReferentialConstraint>
@@ -111,19 +121,21 @@
           <EntitySet Name="CakeParts" EntityType="Self.CakeParts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CakeShopCar" EntityType="Self.CakeShopCar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CakeShops" EntityType="Self.CakeShops" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LoginUser" EntityType="Self.LoginUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CakeTypes" EntityType="Self.CakeTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginUsers" EntityType="Self.LoginUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Verification" EntityType="Self.Verification" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__CakeImage__cakeI__4222D4EF" Association="Self.FK__CakeImage__cakeI__4222D4EF">
+          <AssociationSet Name="FK__CakeImage__cakeI__46E78A0C" Association="Self.FK__CakeImage__cakeI__46E78A0C">
             <End Role="CakeShops" EntitySet="CakeShops" />
             <End Role="CakeImages" EntitySet="CakeImages" />
           </AssociationSet>
-          <AssociationSet Name="FK__CakeShopC__cakeI__46E78A0C" Association="Self.FK__CakeShopC__cakeI__46E78A0C">
+          <AssociationSet Name="FK__CakeShopC__cakeI__4BAC3F29" Association="Self.FK__CakeShopC__cakeI__4BAC3F29">
             <End Role="CakeShops" EntitySet="CakeShops" />
             <End Role="CakeShopCar" EntitySet="CakeShopCar" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BonCakeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -142,7 +154,7 @@
           <Property Name="imgId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="imgName" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="cakeId" Type="Int32" />
-          <NavigationProperty Name="CakeShops" Relationship="Self.FK__CakeImage__cakeI__4222D4EF" FromRole="CakeImages" ToRole="CakeShops" />
+          <NavigationProperty Name="CakeShops" Relationship="Self.FK__CakeImage__cakeI__46E78A0C" FromRole="CakeImages" ToRole="CakeShops" />
         </EntityType>
         <EntityType Name="CakeParts">
           <Key>
@@ -162,31 +174,41 @@
           <Property Name="cakeId" Type="Int32" />
           <Property Name="cakeNum" Type="Int32" />
           <Property Name="cakeBrand" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CakeShops" Relationship="Self.FK__CakeShopC__cakeI__46E78A0C" FromRole="CakeShopCar" ToRole="CakeShops" />
+          <NavigationProperty Name="CakeShops" Relationship="Self.FK__CakeShopC__cakeI__4BAC3F29" FromRole="CakeShopCar" ToRole="CakeShops" />
         </EntityType>
         <EntityType Name="CakeShops">
           <Key>
             <PropertyRef Name="cakeId" />
           </Key>
           <Property Name="cakeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="cakeSize" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cakeSize" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="cakeEnName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cakeChName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="cakePrice" Type="Int32" Nullable="false" />
           <Property Name="cakeType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cakeTest" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="cakeImg" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="CakeImages" Relationship="Self.FK__CakeImage__cakeI__4222D4EF" FromRole="CakeShops" ToRole="CakeImages" />
-          <NavigationProperty Name="CakeShopCar" Relationship="Self.FK__CakeShopC__cakeI__46E78A0C" FromRole="CakeShops" ToRole="CakeShopCar" />
+          <NavigationProperty Name="CakeImages" Relationship="Self.FK__CakeImage__cakeI__46E78A0C" FromRole="CakeShops" ToRole="CakeImages" />
+          <NavigationProperty Name="CakeShopCar" Relationship="Self.FK__CakeShopC__cakeI__4BAC3F29" FromRole="CakeShops" ToRole="CakeShopCar" />
         </EntityType>
-        <EntityType Name="LoginUser">
+        <EntityType Name="CakeTypes">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="loginName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="loginPwd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="loginUser1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="typeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="typeEnName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="typeImg" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LoginUsers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="loginName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="loginPwd" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="loginUser" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="loginImg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -207,7 +229,7 @@
           <Property Name="code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="phoneCode" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
         </EntityType>
-        <Association Name="FK__CakeImage__cakeI__4222D4EF">
+        <Association Name="FK__CakeImage__cakeI__46E78A0C">
           <End Role="CakeShops" Type="Self.CakeShops" Multiplicity="0..1" />
           <End Role="CakeImages" Type="Self.CakeImages" Multiplicity="*" />
           <ReferentialConstraint>
@@ -219,7 +241,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CakeShopC__cakeI__46E78A0C">
+        <Association Name="FK__CakeShopC__cakeI__4BAC3F29">
           <End Role="CakeShops" Type="Self.CakeShops" Multiplicity="0..1" />
           <End Role="CakeShopCar" Type="Self.CakeShopCar" Multiplicity="*" />
           <ReferentialConstraint>
@@ -231,20 +253,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BonCakeEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BonCakeEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BannerIndex" EntityType="Self.BannerIndex" />
           <EntitySet Name="CakeImages" EntityType="Self.CakeImages" />
           <EntitySet Name="CakeParts" EntityType="Self.CakeParts" />
           <EntitySet Name="CakeShopCar" EntityType="Self.CakeShopCar" />
           <EntitySet Name="CakeShops" EntityType="Self.CakeShops" />
-          <EntitySet Name="LoginUser" EntityType="Self.LoginUser" />
+          <EntitySet Name="CakeTypes" EntityType="Self.CakeTypes" />
+          <EntitySet Name="LoginUsers" EntityType="Self.LoginUsers" />
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="Verification" EntityType="Self.Verification" />
-          <AssociationSet Name="FK__CakeImage__cakeI__4222D4EF" Association="Self.FK__CakeImage__cakeI__4222D4EF">
+          <AssociationSet Name="FK__CakeImage__cakeI__46E78A0C" Association="Self.FK__CakeImage__cakeI__46E78A0C">
             <End Role="CakeShops" EntitySet="CakeShops" />
             <End Role="CakeImages" EntitySet="CakeImages" />
           </AssociationSet>
-          <AssociationSet Name="FK__CakeShopC__cakeI__46E78A0C" Association="Self.FK__CakeShopC__cakeI__46E78A0C">
+          <AssociationSet Name="FK__CakeShopC__cakeI__4BAC3F29" Association="Self.FK__CakeShopC__cakeI__4BAC3F29">
             <End Role="CakeShops" EntitySet="CakeShops" />
             <End Role="CakeShopCar" EntitySet="CakeShopCar" />
           </AssociationSet>
@@ -254,7 +277,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BonCakeModelStoreContainer" CdmEntityContainer="BonCakeEntities">
+        <EntityContainerMapping StorageEntityContainer="BonCakeModelStoreContainer" CdmEntityContainer="BonCakeEntities1">
           <EntitySetMapping Name="BannerIndex">
             <EntityTypeMapping TypeName="BonCakeModel.BannerIndex">
               <MappingFragment StoreEntitySet="BannerIndex">
@@ -308,13 +331,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LoginUser">
-            <EntityTypeMapping TypeName="BonCakeModel.LoginUser">
-              <MappingFragment StoreEntitySet="LoginUser">
+          <EntitySetMapping Name="CakeTypes">
+            <EntityTypeMapping TypeName="BonCakeModel.CakeTypes">
+              <MappingFragment StoreEntitySet="CakeTypes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="typeName" ColumnName="typeName" />
+                <ScalarProperty Name="typeEnName" ColumnName="typeEnName" />
+                <ScalarProperty Name="typeImg" ColumnName="typeImg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginUsers">
+            <EntityTypeMapping TypeName="BonCakeModel.LoginUsers">
+              <MappingFragment StoreEntitySet="LoginUsers">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="loginName" ColumnName="loginName" />
                 <ScalarProperty Name="loginPwd" ColumnName="loginPwd" />
-                <ScalarProperty Name="loginUser1" ColumnName="loginUser" />
+                <ScalarProperty Name="loginUser" ColumnName="loginUser" />
+                <ScalarProperty Name="loginImg" ColumnName="loginImg" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
