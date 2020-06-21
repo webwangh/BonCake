@@ -35,18 +35,22 @@ namespace BonCake.Controllers
                 return RedirectToAction("UserCenter");
             }
         }
-        public ActionResult Regist(User user)
+        public ActionResult Regist()
+        {
+            
+            return View();
+        }
+        public ActionResult RegistUser(User user)
         {
             using (BonCakeEntities1 db = new BonCakeEntities1())
             {
-                user.userName = "新注册用户";
+                user.userName = "新";
                 user.userSex = "男";
                 user.userData = DateTime.Now;
                 db.User.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Login");
             }
-            
         }
         //CheckPhone
         public JsonResult CheckPhone(string userPhone)

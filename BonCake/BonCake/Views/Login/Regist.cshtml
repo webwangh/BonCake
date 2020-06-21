@@ -83,15 +83,15 @@
                 <p class="section_content_logintype text-center">
                     用户注册
                 </p>
-                <form action="/Login/Regist" method="post" id="Form_Regist" enctype="multipart/form-data">
-                    <div class="section_content_input">
+                <div class="section_content_input">
+                    <form action="/Login/RegistUser" method="post" id="Form_Regist" enctype="multipart/form-data">
                         <div class="form-group">
                             <input type="text" name="userPhone" id="" value="" placeholder="&nbsp;&nbsp;请输入11位手机号" class="input_userName " />
                         </div>
                         <div class="form-group">
                             <input type="text" name="userPwd" id="" value="" placeholder="&nbsp;&nbsp;密码(6-20个字符)" class="input_userName" />
                         </div>
-                        <div class="form-groupl">
+                        <div class="form-group">
                             <input type="text" name="confirmPwd" id="" value="" placeholder="&nbsp;&nbsp;再次填写密码" class="input_userName" />
                         </div>
                         <div class="form-group">
@@ -101,13 +101,12 @@
                         <div class="form-group">
                             <input class="input_btn_login" type="submit" value=" 注册 " />
                         </div>
-                        
+                    </form>
                         <p>
                             <input type="checkbox" name="" id="" value="" style="margin-top: 8%;" />
                             已阅读并同意注册协议
                         </p>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -130,17 +129,9 @@
                         message: '密码不能为空'
                     },
                     stringLength: {
-                        min: 8,
+                        min: 6,
                         max: 12,
                         message: '密码长度必须在6到12位之间'
-                    },
-                    regexp: {
-                        regexp: /^[a-zA-Z0-9_]+$/,
-                        message: '密码只能包含大写、小写、数字和下划线'
-                    },
-                    different: {  //比较
-                        field: 'userName', //需要进行比较的input name值
-                        message: '密码不能与用户名相同'
                     }
                 }
             },
@@ -150,7 +141,7 @@
                         message: '确认密码不能为空'
                     },
                     identical: {  //比较是否相同
-                        field: 'pwd',  //需要进行比较的input name值
+                        field: 'userPwd',  //需要进行比较的input name值
                         message: '两次密码不一致'
                     }
                 }

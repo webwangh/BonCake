@@ -78,9 +78,9 @@
           </Key>
           <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="userSex" Type="nvarchar" MaxLength="20" />
-          <Property Name="userName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="20" />
           <Property Name="userPwd" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="userPhone" Type="char" MaxLength="11" />
+          <Property Name="userPhone" Type="char" MaxLength="11" Nullable="false" />
           <Property Name="userData" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Verification">
@@ -215,9 +215,9 @@
           </Key>
           <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="userSex" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="userName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="userPwd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="userPhone" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="userPhone" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="userData" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="Verification">
