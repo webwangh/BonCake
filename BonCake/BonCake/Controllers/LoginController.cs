@@ -44,8 +44,6 @@ namespace BonCake.Controllers
         {
             using (BonCakeEntities1 db = new BonCakeEntities1())
             {
-                user.userName = "新";
-                user.userSex = "男";
                 user.userData = DateTime.Now;
                 db.User.Add(user);
                 db.SaveChanges();
@@ -69,6 +67,20 @@ namespace BonCake.Controllers
         public ActionResult UserCenter()
         {
             return View();
+        }
+        public ActionResult ModifyUser(User user)
+        {
+            var userId = (Session["user"] as User).userId;
+            using (BonCakeEntities1 db = new BonCakeEntities1())
+            {
+                var modifyUser = db.User.Where(u => u.userId.Equals(userId)).SingleOrDefault();
+                modifyUser.userName = user.userName;
+                modifyUser.userSex = user.userSex;
+                modifyUser.userPhone = user.userPhone;
+                modifyUser.userData = user.userData;
+                db.SaveChanges();
+            }
+            return RedirectToAction("UserCenter");
         }
         public ActionResult ShoppingCar()
         {

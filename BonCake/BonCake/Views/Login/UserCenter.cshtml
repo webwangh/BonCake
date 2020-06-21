@@ -3,7 +3,7 @@
     ViewBag.Title = "个人中心";
     Layout = "~/Views/Shared/_LayoutheadAndFooter.cshtml";
 }
-    <link href="~/Content/layui.css" rel="stylesheet" />
+<link href="~/Content/layui.css" rel="stylesheet" />
 <style type="text/css">
     .section_content {
         margin-top: 3%;
@@ -49,11 +49,14 @@
                 <hr style="border: 1px solid black;width: 6%;margin-left: 0;" />
                 <hr style="width: 100%;margin-left: 0;" />
             </div>
+            @{
+                var user = Session["user"] as BonCake.Models.User;
+            }
             <div class="container-fluid">
                 <div class="row">
                     <div class="user_info col-lg-3">
-                        <h4>用户名：<span>15650850219</span></h4>
-                        <p><img src="../Images/tel-icon.png" />  15650850219</p>
+                        <h4>用户名：<span>@user.userName</span></h4>
+                        <p><img src="../Images/tel-icon.png" />@user.userPhone</p>
                         <p><img src="../Images/position-icon-black.png" />  地址管理</p>
                         <p><img src="../Images/pwd-icon.png" />  修改密码</p>
                         <p data-toggle="modal" data-target="#myModal"><img src="../Images/edit-icon.png" />  编辑个人信息</pdata-toggle="modal">
@@ -145,63 +148,47 @@
         <hr style="margin: 5% 0;" />
     </div>
 </section>
+
 @*模态框*@
-<h2>创建模态框（Modal）</h2>
-<!-- 按钮触发模态框 -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    开始演示模态框
-</button>
 <!-- 模态框（Modal） -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    @*<div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    &times;
-                </button>
-                <h4 class="modal-title" id="myModalLabel">
-                    模态框（Modal）标题
-                </h4>
-            </div>
-            <div class="modal-body">
-                在这里添加一些文本
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">
-                    关闭
-                </button>
-                <button type="button" class="btn btn-primary">
-                    提交更改
-                </button>
-            </div>
-        </div> /.modal-content 
-    </div> /.modal*@ 
     <div class="col-lg-4 col-lg-offset-4" style="background-color:white;margin-top:15%">
-        <div class="col-lg-10 col-lg-offset-1">
-            <p class="text-center">完善个人信息</p>
-            <div class="form-group">
-                <label class="control-label">用户名：</label>
-                <input type="text" name="userName" value="" class="form-control" />
+        <form action="/Login/ModifyUser" method="post">
+            <div class="col-lg-10 col-lg-offset-1" style="margin-top:5%">
+                <p class="text-center">完善个人信息</p>
+                <div class="form-group">
+                    <label class="control-label">用户名：</label>
+                    <input type="text" name="userName" value="" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">性别：</label>&nbsp;&nbsp;&nbsp;
+                    男&nbsp;<input type="radio" name="userSex" value="男" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    女&nbsp;<input type="radio" name="userSex" value="女" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">手机号码：</label>
+                    <input type="text" name="userPhone" value="" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">出生日期：</label>
+                    <input type="text" name="userData" value="" class="form-control" />
+                </div>
+                <div class="form-group text-center">
+                    <input type="submit" name="btn_submit" value="保存" class="btn" style="background-color:black;color:white" />
+                </div>
             </div>
-            <div class="form-group">
-                <label class="control-label">性别：</label>
-                男<input type="radio" name="userMan" value="男" />
-                女<input type="radio" name="userWoman" value="女" />
-            </div>
-            <div class="form-group">
-                <label class="control-label">手机号码：</label>
-                <input type="text" name="userPhone" value="" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label class="control-label">出生日期：</label>
-                <input type="text" name="userData" value="" class="form-control" />
-            </div>
-            <div class="form-group text-center">
-                <input type="submit" name="btn_submit" value="保存" class="btn" style="background-color:black;color:white" />
-            </div>
-        </div>
-        
+        </form>
     </div>
 </div>
 <script src="~/Scripts/layui.js"></script>
+<script>
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1' //指定元素
+        });
+    });
+</script>
+
 
