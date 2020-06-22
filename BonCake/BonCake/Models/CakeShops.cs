@@ -17,7 +17,6 @@ namespace BonCake.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CakeShops()
         {
-            this.CakeImages = new HashSet<CakeImages>();
             this.CakeShopCar = new HashSet<CakeShopCar>();
         }
     
@@ -30,8 +29,6 @@ namespace BonCake.Models
         public string cakeTest { get; set; }
         public string cakeImg { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CakeImages> CakeImages { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CakeShopCar> CakeShopCar { get; set; }
     }

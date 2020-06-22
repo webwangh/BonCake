@@ -83,19 +83,23 @@
                     <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
                     <span style="color: #d3b145;" class="yanzhengma_1">&nbsp;&nbsp;手机验证码登录</span>
                 </p>
-                <div class="section_content_input">
-                    <input type="text" name="" id="" value="" placeholder="&nbsp;&nbsp;请输入您的手机号" class="input_userName" />
-                    <input id="" type="text" placeholder="&nbsp;&nbsp;*验证码" class="input_userName" style="width: 60%;" />
-                    <span id="v_container" style=" display:inline-block;vertical-align: middle;"></span>
-                    <input class="input_userName" id="code" name="code" type="text" placeholder="&nbsp;&nbsp;*短信验证码" style="width: 50%;" />
-                    <input class="input_btn" id="zphone" type="button" value=" 获取验证码 " onClick="get_mobile_code();">
-                    <input class="input_btn_login" type="submit" value=" 登录 " />
-                    <p>
-                        <input type="checkbox" name="" id="" value="" style="margin-top: 8%;" />记住密码
-                        <span class="col-lg-offset-5">忘记密码</span>
-                        <a href="/Login/Regist" style="margin-left: 3%;color: #000000;text-decoration: none;">去注册</a>
-                    </p>
-                </div>
+                <form action="/" method="post" id="code_login">
+                    <div class="section_content_input">
+                        <div class="form-group">
+                            <input type="text" name="userPhone" id="" value="" placeholder="&nbsp;&nbsp;请输入您的手机号" class="input_userName" />
+                        </div>
+                        <input id="" type="text" placeholder="&nbsp;&nbsp;*验证码" class="input_userName" style="width: 60%;" />
+                        <span id="v_container" style=" display:inline-block;vertical-align: middle;"></span>
+                        <input class="input_userName" id="code" name="code" type="text" placeholder="&nbsp;&nbsp;*短信验证码" style="width: 50%;" />
+                        <input class="input_btn" id="zphone" type="button" value=" 获取验证码 " onClick="get_mobile_code();">
+                        <input class="input_btn_login" type="submit" value=" 登录 " />
+                        <p>
+                            <input type="checkbox" name="" id="" value="" style="margin-top: 8%;" />记住密码
+                            <span class="col-lg-offset-5">忘记密码</span>
+                            <a href="/Login/Regist" style="margin-left: 3%;color: #000000;text-decoration: none;">去注册</a>
+                        </p>
+                    </div>
+                </form>
                 <div style="margin-top: 8%;" class="text-center">
                     <img src="../Images/line-pic2.png" width="160" />
                     <span style="font-size: 14px;">&nbsp;&nbsp;快捷登录&nbsp;&nbsp;</span>
@@ -115,7 +119,9 @@
                 </p>
                 <form action="/Login/LoginUser" method="post">
                     <div class="section_content_input">
-                        <input type="text" name="userName" id="" value="" placeholder="&nbsp;&nbsp;用户名/邮箱地址/手机号" class="input_userName" />
+                        <div class="form-group">
+                            <input type="text" name="userName" id="" value="" placeholder="&nbsp;&nbsp;用户名/邮箱地址/手机号" class="input_userName" />
+                        </div> 
                         <input type="text" name="userPwd" id="" value="" placeholder="&nbsp;&nbsp;请输入您的密码" class="input_userName" />
                         <input class="input_btn_login" type="submit" value=" 登录 " />
                         <p>
@@ -143,23 +149,57 @@
     function get_mobile_code() {
         var mobile = $('#mobile').val();
         var res = verifyCode.validate(document.getElementById("code_input").value);
-        if (!isPhoneNo(mobile)) {
-            $('.message_phone').text("*手机号码有误，请重填");
-            return false;
+    }; 
+    $('#code_login').bootstrapValidator({
+        message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            code: {
+                validators: {
+                    notEmpty: {
+                        message: '验证码不能为空'
+                    }
+                }
+            },
+            userPhone: {
+                validators: {
+                    notEmpty: {
+                        message: '手机号不能为空'
+                    },
+                    regexp: {
+                        regexp: /^1(3|4|5|7|8)\d{9}$/,
+                        message: '手机号码不符合规则'
+                    }
+                }
+            }
         }
-        $('.message_phone').text("");
-        if (!res) {
-            $('.message_yanzheng').text("*验证码错误");
-            return false;
+    });
+    $('#code_login').bootstrapValidator({
+        message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            userPwd: {
+                validators: {
+                    notEmpty: {
+                        message: '验证码不能为空'
+                    }
+                }
+            },
+            userName: {
+                validators: {
+                    notEmpty: {
+                        message: '用户名不能为空'
+                    }
+                }
+            }
         }
-        $('.message_yanzheng').text("");
-        console.log('将要发送手机验证码' + mobile)
-    };
-
-    // 验证手机号
-    function isPhoneNo(phone) {
-        var pattern = /^1[34578]\d{9}$/;
-        return pattern.test(phone);
-    }
-
+    });
 </script>

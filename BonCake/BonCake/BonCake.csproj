@@ -248,8 +248,8 @@
     <Content Include="Images\wx-chat.png" />
     <Content Include="Models\BonCake.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BonCake.Context.cs</LastGenOutput>
       <DependentUpon>BonCake.edmx</DependentUpon>
+      <LastGenOutput>BonCake.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\BonCake.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

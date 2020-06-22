@@ -13,10 +13,10 @@ namespace BonCake.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BonCakeEntities1 : DbContext
+    public partial class BonCakeEntities2 : DbContext
     {
-        public BonCakeEntities1()
-            : base("name=BonCakeEntities1")
+        public BonCakeEntities2()
+            : base("name=BonCakeEntities2")
         {
         }
     

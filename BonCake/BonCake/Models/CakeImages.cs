@@ -16,8 +16,6 @@ namespace BonCake.Models
     {
         public int imgId { get; set; }
         public string imgName { get; set; }
-        public Nullable<int> cakeId { get; set; }
-    
-        public virtual CakeShops CakeShops { get; set; }
+        public int cakeId { get; set; }
     }
 }
